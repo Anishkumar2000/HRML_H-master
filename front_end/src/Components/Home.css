@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100;
+  }
+  .container{
+    height: 100vh;
+    width: 100%;
+    /* background-color:lightblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .head{
+    height: 13vh;
+    width: 100%;
+    /* background-color: wheat; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .add{
+    height: 7vh;
+    width: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .add button{
+    position: relative;
+    right: 50%;
+  }
+  .btn{
+    height: 4vh;
+    width: 5vw;
+    border: none;
+    color: white;
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
+  .blue{
+    background-color: blue;
+  }
+  .blue:hover{
+    background-color: darkblue;
+  }
+  .green{
+    background-color: green;
+  }
+  .green:hover{
+    background-color: darkgreen;
+  }
+  .red{
+    background-color: red;
+  }
+  .red:hover{
+    background-color: darkred;
+  }
+  .table{
+    height: 75vh;
+    width: 100%;
+    /* background-color: beige; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  table{
+    height: 75vh;
+    width: 95%;
+    border: 0.15rem solid black;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-collapse: collapse;
+    
+  }
+  /* table::-webkit-scrollbar{
+    display: none;
+  } */
+  thead{
+    height: 6.8vh;
+    width: 100%;
+    /* background-color: rgb(255, 0, 212); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    
+  }
+  tr{
+    height: 6.8vh;
+    width: 100%;
+    /* background-color: aliceblue; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
+  th{
+    height: 6.8vh;
+    width: 14.5%;
+    background-color: goldenrod;
+    border: 0.15rem solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-collapse: collapse; */
+    
+  }
+  tbody{ 
+    height: 55vh;
+  }
+  td{
+    height: 6.8vh;
+    width: 14.5%;
+    border: 0.15rem solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  footer{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

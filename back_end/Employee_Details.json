@@ -1,0 +1,41 @@
+[
+  {
+    "code": "TB001",
+    "name": "AnishKumar",
+    "mail": "anishkumar8868@gmail.com",
+    "department": "Web Developer",
+    "Role": "Front End",
+    "Dob": "20/09/2000",
+    "Doj": "01/01/2024",
+    "salary": "100",
+    "pan": "ECHPA5209Q",
+    "pf": "TNTB767656986"
+  },
+  {
+    "code": "TB002",
+    "name": "Kumar",
+    "mail": "kumar8868@gmail.com",
+    "department": "Web Developer",
+    "Role": "Back End",
+    "Dob": "20/05/2002",
+    "Doj": "04/01/2023",
+    "salary": "300",
+    "pan": "ECHPA6744Q",
+    "pf": "TNTB767656986"
+  },
+  {
+    "code": "TB003",
+    "name": "Raja",
+    "mail": "raja@gmail.com",
+    "department": "Web Developer",
+    "Role": "Front End",
+    "Dob": "04/03/2001",
+    "Doj": "01/02/2022",
+    "salary": "100",
+    "pan": "ECHPA4209Q",
+    "pf": "TNTB767656986"
+  }
+
+]
+
+
