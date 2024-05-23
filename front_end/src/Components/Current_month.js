@@ -33,7 +33,7 @@ function Current_month() {
             <Link to={`/view/previous_month/${Emp.code}`}>
               <button className="curbtn blue">Previous Month</button>
             </Link>
-            <Link to="/view/current_month/add_salary">
+            <Link to={`/view/current_month/sal_add/${Emp.code}`}>
               <button className="curbtn green">Add</button>
             </Link>
           </div>

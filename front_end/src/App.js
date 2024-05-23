@@ -6,6 +6,7 @@ import Add from "./Components/Add";
 import Edit from "./Components/Edit";
 import Current_month from "./Components/Current_month";
 import Previous_month from "./Components/Previous_month";
+import Sal_Add from "./Components/Sal_components/Sal_Add";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Edit/:id" element={<Edit />} />
           <Route path="/view/current_month/:id" element={<Current_month />} />
           <Route path="/view/previous_month/:id" element={<Previous_month />} />
+          <Route path="/view/current_month/sal_add/:id" element = {< Sal_Add/>} />
         </Routes>
       </BrowserRouter>
     </>

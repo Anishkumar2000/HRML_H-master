@@ -6,6 +6,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const Emp = require("./model/Empmodel");
 
+
 const uri = process.env.Atlas_Uri;
 
 app.use(express.json());
@@ -17,6 +18,8 @@ app.use(
   })
 );
 
+
+
 // database Connection
 
 mongoose.connect(uri);
@@ -26,12 +29,20 @@ Connection.once("open", () => {
   console.log("Database Connected");
 });
 
+
+// test 
+
+// app.get(`/users/one/:id`, async (req,res)=>{
+//   const eid = req.params.id;
+//   const EdEmp = await Emp.findOne({ code: Eid });
+//   return res.json(EdEmp);
+// })
 // Get All Employees
 
 app.get("/users", async (req, res) => {
   const empl = await Emp.find();
   return res.json(empl);
-  // return res.json([]);
+
 });
 
 // Add Employee
