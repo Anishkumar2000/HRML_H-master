@@ -6,10 +6,15 @@ import axios from "axios";
 function Sal_Add() {
   const { id } = useParams();
   const [userdata , setuserdata] = useState([]); // backend
-   const [User, setUser] = useState([]);
+   const [date, setdate] = useState("");
+   const [month, setmonth] = useState("");
+   const [w_hrs,setw_hrs] = useState(0);
    const [w_amt,setw_amt] = useState(0);
+   const [ot_hrs,setot_hrs] = useState(0);
    const [ot_amt,setot_amt] = useState(0);
    const [total,settotal] = useState(0);
+  //  const [valu,setvalu] = useState("");
+   
   let Months = [
     "Jan",
     "Feb",
@@ -30,56 +35,74 @@ function Sal_Add() {
       setuserdata(res.data);
     });
   };
-
-  useEffect(()=>{
-    one();
-  },[]);
-
-
+  one();
+   const date1 = (e)=>{
+      setdate(e.target.value);
+   }
 
   const whrs = (e) => {
-    let whr = userdata.salary*e.target.value;
-    setw_amt(Number(whr));
+    setw_hrs(Number(e.target.value));
+    // let whr = userdata.salary*e.target.value;
+    
   };
  
   function othrs(e) {
+    setot_hrs(Number(e.target.value));
     let otamt = e.target.value*(userdata.salary*1.5);
     setot_amt(Number(otamt));
     
   };
-  useEffect(()=>{
-    settotal(w_amt + ot_amt);
-  },[w_amt,ot_amt]);
-
   
-function done() {
-  let code = userdata.code;
-  let date = document.querySelector('#date').value;
-  let mon = new Date(date).getMonth();
-  let month = Months[mon];
-  let w_hrs = document.querySelector("#w_hrs").value;
-  let ot = document.querySelector('#ot').value;
+  useEffect(()=>{
+    let mon = new Date(date).getMonth();
+    setmonth(Months[mon]);
+    setw_amt((Number(userdata.salary)*w_hrs));
+    setot_amt((Number(userdata.salary)*1.5)*ot_hrs);
+    settotal(w_amt + ot_amt);
+  },[date,w_hrs,w_amt,ot_amt]);
+
+  // console.log(userdata);
+
+const done = async()=>{
+const data = {
+  code:userdata.code,
+  month:month,
+  date:date,
+  w_hrs:w_hrs,
+  w_amt:w_amt,
+  ot_hrs:ot_hrs,
+  ot_amt:ot_amt,
+  total:total,
+  leave:0
+};
+await axios.post("http://localhost:5001/sal/add",data).then((res)=>{
+  console.log(res.data);
+ setw_hrs(0);
+ setot_hrs(0);
+});
+
  };
 
 
   return (
-    <div className="sal_container dfcc">
+    <div className="container dfcc">
       <div className="sal_form dfcc c">
         <div className="box1 dfcc">
-          <h3>Name</h3>
+          <h3>{userdata.code}</h3>
         </div>
         <div className="box2 dfs c">
           <div className="box">
-            <label htmlFor="date">date</label>
-            <input type="date" id="date" />
+            <label htmlFor="date">Date</label>
+            <input type="date" id="date" onChange={date1} />
           </div>
           <div className="box">
             <label htmlFor="w_hrs">Worked Hours</label>
             <input
               type="text"
               id="w_hrs"
+              value={w_hrs}
               onChange={whrs}
-              placeholder="Enter Worked Hours"
+              
             />
           </div>
           <div className="box">
@@ -92,7 +115,7 @@ function done() {
               type="text"
               id="ot"
               onChange={othrs}
-              placeholder="Enter Worked Hours"
+              value={ot_hrs}
             />
           </div>
           <div className="box">

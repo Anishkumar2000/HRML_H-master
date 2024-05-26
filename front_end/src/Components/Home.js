@@ -46,6 +46,7 @@ function Home() {
         <table>
           <thead>
             <tr>
+              <th>S.No</th>
               <th>Emp Code</th>
               <th>Name</th>
               <th>Mobile</th>
@@ -57,9 +58,10 @@ function Home() {
             </tr>
           </thead>
           <tbody>
-            {Employees.map((emp) => {
+            {Employees.map((emp,index) => {
               return (
                 <tr key={emp.code}>
+                  <td>{index+1}</td>
                   <td>{emp.code}</td>
                   <td>{emp.name}</td>
                   <td>{emp.mobile}</td>

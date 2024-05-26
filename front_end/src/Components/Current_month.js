@@ -6,23 +6,51 @@ import axios from "axios";
 function Current_month() {
   const { id } = useParams();
   const [Emp, setEmp] = useState([]);
+  const [Empsal, setEmpsal] = useState([]);
+  // const [total, settotal] = useState(0);
 
   let user = async () => {
     await axios.get(`http://localhost:5001/users/edit/${id}`).then((res) => {
       setEmp(res.data);
     });
   };
-
+   
+  let Months = [
+    "Jan", 
+    "Feb",
+    "Mar",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let sal = async ()=>{
+    let mon = new Date().getMonth();
+    let month = Months[mon];
+    await axios.get(`http://localhost:5001/sal/${id}/${month}`).then((res)=>{
+      setEmpsal(res.data);
+    });
+  }
   useEffect(() => {
     user();
+    sal();  
   }, []);
-
-  // test
-
-  // const submit = () => {
-  //   let val = document.querySelector("#test");
-  //   console.log(val.value);
-  // };
+  // Delete Salary 
+ 
+ async function del(id){
+  
+      await axios.delete(`http://localhost:5001/sal/${id}`).then((res)=>{
+        console.log(res.data);
+        sal();
+      })
+  }
+  
+ 
 
   return (
     // <div></div>
@@ -48,6 +76,7 @@ function Current_month() {
             {/* </div> */}
           </div>
           <div className="curtotal">
+            
             <h3>Total : Rs.5000</h3>
             <h3>No.Of Leaves : 2</h3>
           </div>
@@ -56,6 +85,7 @@ function Current_month() {
           <table>
             <thead>
               <tr>
+                <th>S.No</th>
                 <th>Date</th>
                 <th>Worked Hours</th>
                 <th>Amount</th>
@@ -63,18 +93,33 @@ function Current_month() {
                 <th>Amount</th>
                 <th>Total</th>
                 <th>Edit</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                {/* <input type="date" id="test" />
-                <button onClick={submit}>Submit</button> */}
-              </tr>
+              {
+                
+                Empsal.map((sal,index)=>{
+                  let id = sal._id; 
+                  return (
+                    <tr key={index}>
+                        <td>{index+1}</td>
+                        <td>{sal.date}</td>
+                        <td>{sal.w_hrs}</td>
+                        <td>{sal.w_amt}</td>
+                        <td>{sal.ot_hrs}</td>
+                        <td>{sal.ot_amt}</td>
+                        <td >{sal.total}</td>
+                        <td><Link to={`/sal/edit/${sal.code}/${id}`}><button className="btn green">Edit</button></Link></td>
+                        <td><button className="btn red" onClick={()=>{del(id)}}>Delete</button></td>
+                    </tr>
+                  )
+                })
+              }
             </tbody>
           </table>
         </div>
         <footer>
-          <button className="curbtn green">Completed</button>
         </footer>
       </div>
     </>

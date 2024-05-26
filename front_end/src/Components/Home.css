@@ -4,25 +4,35 @@
     box-sizing: border-box;
     font-size: 100;
   }
-  .container{
+  body{
     height: 100vh;
     width: 100%;
-    /* background-color:lightblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+  }
+  .container{
+    height: 90vh;
+    width: 95vw;
+    /* background-color:white; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 1rem;
   }
   .head{
-    height: 13vh;
+    height: 18vh;
     width: 100%;
     /* background-color: wheat; */
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #c70039;
   }
   .add{
-    height: 7vh;
+    height: 12vh;
     width: 100%;
     /* background-color: yellow; */
     display: flex;
@@ -62,21 +72,26 @@
   .table{
     height: 75vh;
     width: 100%;
-    /* background-color: beige; */
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    /* background-color: #ccc; */
     
   }
   table{
     height: 75vh;
     width: 95%;
-    border: 0.15rem solid black;
+    background-color: white;
+    border: 0.15rem solid aqua;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     border-collapse: collapse;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    /* background-color: rgba(255, 255, 255, 0.95); */
+   
     
   }
   /* table::-webkit-scrollbar{
@@ -105,8 +120,8 @@
   th{
     height: 6.8vh;
     width: 14.5%;
-    background-color: goldenrod;
-    border: 0.15rem solid #ccc;
+    background-color: orange;
+    border: 0.15rem solid aqua;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,17 +134,11 @@
   td{
     height: 6.8vh;
     width: 14.5%;
-    border: 0.15rem solid #ccc;
+    border: 0.15rem solid aqua;
     display: flex;
     justify-content: center;
     align-items: center;
     
   }
   
-  footer{
-    height: 10vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  

@@ -4,13 +4,13 @@ const port = 5001;
 const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
-const Emp = require("./model/Empmodel");
-
+// const Emp = require("./model/Empmodel");
+const Sal = require('./model/salary_model');
+const salrouter = require("./Routes/salRouter");
+const userrouter = require("./Routes/EmployeesRoutes");
 
 const uri = process.env.Atlas_Uri;
-
 app.use(express.json());
-
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -18,124 +18,25 @@ app.use(
   })
 );
 
-
-
 // database Connection
 
 mongoose.connect(uri);
 const Connection = mongoose.connection;
 
-Connection.once("open", () => {
-  console.log("Database Connected");
-});
-
-
-// test 
-
-// app.get(`/users/one/:id`, async (req,res)=>{
-//   const eid = req.params.id;
-//   const EdEmp = await Emp.findOne({ code: Eid });
-//   return res.json(EdEmp);
-// })
-// Get All Employees
-
-app.get("/users", async (req, res) => {
-  const empl = await Emp.find();
-  return res.json(empl);
-
-});
-
-// Add Employee
-
-app.post("/users/add", async (req, res) => {
-  const {
-    empcode,
-    name,
-    mail,
-    mobile,
-    department,
-    role,
-    dob,
-    doj,
-    salary,
-    aadhar,
-    pan,
-    pf,
-  } = req.body;
-  const newemp = await Emp.create({
-    code: empcode,
-    name: name,
-    mail: mail,
-    mobile: mobile,
-    department: department,
-    role: role,
-    dob: dob,
-    doj: doj,
-    salary: salary,
-    aadhar: aadhar,
-    pan: pan,
-    pf: pf,
+try{
+  Connection.once("open", () => {
+    console.log("Database Connected");
   });
-  return res.json(newemp);
-});
+}
+catch{
+  console.log("Database Not Connected");
+}
+// test
 
-// Edit Employee -> send Employee Deatils
+// Routes
+app.use('/users',userrouter);
 
-app.get("/users/edit/:id", async (req, res) => {
-  const Eid = req.params.id;
-  const EdEmp = await Emp.findOne({ code: Eid });
-  return res.json(EdEmp);
-});
-
-app.post("/users/update/:id", async (req, res) => {
-  const Uid = req.params.id;
-  const {
-    code,
-    name,
-    mail,
-    mobile,
-    department,
-    role,
-    dob,
-    doj,
-    salary,
-    aadhar,
-    pan,
-    pf,
-  } = req.body;
-
-  const UpEmp = await Emp.updateOne(
-    { code: Uid },
-    {
-      $set: {
-        code: code,
-        name: name,
-        mail: mail,
-        mobile: mobile,
-        department: department,
-        role: role,
-        dob: dob,
-        doj: doj,
-        salary: salary,
-        aadhar: aadhar,
-        pan: pan,
-        pf: pf,
-      },
-    }
-  );
-  return res.json({
-    message: "Employees Details Added Successfully Completed",
-  });
-});
-
-// Delete Employee
-
-app.post("/users/delete", async (req, res) => {
-  const DelEmp = await Emp.deleteOne(req.body);
-  // console.log(req.body);
-  return res.json(DelEmp);
-  // return res.json({ message: "wait" });
-});
+app.use('/sal',salrouter);
 
 app.listen(port, (err) => {
   console.log(`App is Running in Port ${port}`);
