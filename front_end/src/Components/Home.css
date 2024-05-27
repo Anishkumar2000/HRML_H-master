@@ -32,6 +32,11 @@
     color: #c70039;
     padding: 0 2.5rem;
   }
+  .head input{
+    height: 4vh;
+    width: 20%;
+    background-color: #FFE4B5	;
+  }
   img{
     height: 6vh;
     width: 3vw;

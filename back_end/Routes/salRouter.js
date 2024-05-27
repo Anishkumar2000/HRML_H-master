@@ -23,7 +23,6 @@ router.get("/:id/:month", async (req, res) => {
 router.post("/add", async (req, res) => {
     
     const { code, month, date, w_hrs, w_amt, ot_hrs, ot_amt, total, leave } = req.body;
-
     const addsal = await Sal.create({
         code: code,
         month: month,
