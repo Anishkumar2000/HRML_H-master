@@ -38,10 +38,9 @@
     background-color: #FFE4B5	;
   }
   img{
-    height: 6vh;
-    width: 3vw;
+    height: 5vh;
+    width: 2.5vw;
     border-radius: 50%;
-    
   }
   .btn{
     height: 4vh;
@@ -75,8 +74,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* background-color: #ccc; */
     
   }
   table{

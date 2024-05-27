@@ -21,10 +21,6 @@ function Home() {
   // Delete a Employee
   const delEmp = async (id) => {
     const code = id;
-    // console.log(deid);
-    // let a = {
-    //   name: "Ak",
-    // };
     await axios
       .post("http://localhost:5001/users/delete", { code })
       .then((res) => {
@@ -83,8 +79,7 @@ function Home() {
                   <td>
                     <button
                       className="btn red"
-                      onClick={() => delEmp(emp.code)}
-                    >
+                      onClick={() => delEmp(emp.code)}>
                       Delete
                     </button>
                   </td>

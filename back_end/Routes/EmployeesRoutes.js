@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const Sal = require("../model/salary_model");
 const Emp = require("../model/Empmodel");
 
 // Get All Employees
@@ -96,8 +96,11 @@ router.post("/add", async (req, res) => {
 
 router.post("/delete", async (req, res) => {
   const DelEmp = await Emp.deleteOne(req.body);
-  // console.log(req.body);
+  const DelSal = await Sal.deleteMany(req.body);
+  console.log(req.body);
+  console.log(DelSal);
   return res.json(DelEmp);
+  
   // return res.json({ message: "wait" });
 });
 module.exports = router;
