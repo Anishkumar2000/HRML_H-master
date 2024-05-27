@@ -56,7 +56,7 @@ function Edit() {
 
   return (
     <>
-      <div className="addcontainer">
+      <div className="dfcc c">
         <div className="addhead">
           <h3>Edit Employee</h3>
         </div>

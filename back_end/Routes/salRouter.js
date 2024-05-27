@@ -32,8 +32,8 @@ router.post("/add", async (req, res) => {
         w_amt: w_amt,
         ot_hrs: ot_hrs,
         ot_amt: ot_amt,
-        total: total,
-        leave: leave
+        total: total
+        
     });
     return res.json(addsal);
     // console.log(addsal);

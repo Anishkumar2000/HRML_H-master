@@ -83,7 +83,7 @@ const done = async ()=>{
 };
 
   return (
-    <div className="container dfcc">
+    <div className="dfcc">
       <div className="sal_form dfcc c">
         <div className="box1 dfcc">
           <h3>{userdata.code}</h3>

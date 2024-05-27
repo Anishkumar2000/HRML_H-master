@@ -49,7 +49,11 @@ function Current_month() {
         console.log(res.data);
         sal();
       })
-  }
+  };
+  let total = 0;
+  Empsal.map((sal) => {
+    total = total + sal.total;
+  });
   
   
 
@@ -59,11 +63,14 @@ function Current_month() {
       <div className="container">
         <div className="curhead">
           <div className="prebtn">
+            < Link to={"/"}>
+            <img
+              src="https://www.creativefabrica.com/wp-content/uploads/2021/11/26/HR-Logo-design-vector-Graphics-20767349-1-580x386.jpg"
+              alt="Logo"
+            ></img>
+            </Link>
             <Link to={`/view/current_month/${Emp.code}`}>
               <button className="curbtn blue">Current Month</button>
-            </Link>
-            <Link to={`/view/current_month/sal_add/${Emp.code}`}>
-              <button className="curbtn green">Add</button>
             </Link>
           </div>
           <div className="curheading">
@@ -77,9 +84,10 @@ function Current_month() {
             {/* </div> */}
           </div>
           <div className="curtotal">
-            
-            <h3>Total : Rs.5000</h3>
-            <h3>No.Of Leaves : 2</h3>
+            <Link to={`/view/current_month/sal_add/${Emp.code}`}>
+              <button className="btn green">Add</button>
+            </Link>
+            <h3>Total : Rs.{total}</h3>
           </div>
         </div>
         <div className="curtable">
@@ -98,30 +106,39 @@ function Current_month() {
               </tr>
             </thead>
             <tbody>
-              {
-                
-                Empsal.map((sal,index)=>{
-                  let id = sal._id; 
-                  return (
-                    <tr key={index}>
-                        <td>{index+1}</td>
-                        <td>{sal.date}</td>
-                        <td>{sal.w_hrs}</td>
-                        <td>{sal.w_amt}</td>
-                        <td>{sal.ot_hrs}</td>
-                        <td>{sal.ot_amt}</td>
-                        <td >{sal.total}</td>
-                        <td><Link to={`/sal/edit/${sal.code}/${id}`}><button className="btn green">Edit</button></Link></td>
-                        <td><button className="btn red" onClick={()=>{del(id)}}>Delete</button></td>
-                    </tr>
-                  )
-                })
-              }
+              {Empsal.map((sal, index) => {
+                let id = sal._id;
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{sal.date}</td>
+                    <td>{sal.w_hrs}</td>
+                    <td>{sal.w_amt}</td>
+                    <td>{sal.ot_hrs}</td>
+                    <td>{sal.ot_amt}</td>
+                    <td>{sal.total}</td>
+                    <td>
+                      <Link to={`/sal/edit/${sal.code}/${id}`}>
+                        <button className="btn green">Edit</button>
+                      </Link>
+                    </td>
+                    <td>
+                      <button
+                        className="btn red"
+                        onClick={() => {
+                          del(id);
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
-        <footer>
-        </footer>
+        <footer></footer>
       </div>
     </>
   );

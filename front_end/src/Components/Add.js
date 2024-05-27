@@ -19,7 +19,7 @@ function Add() {
 
   return (
     <>
-      <div className="container">
+      <div className="dfcc c">
         <div className="addhead">
           <h3>Add Employee</h3>
         </div>

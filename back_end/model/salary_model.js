@@ -8,8 +8,7 @@ const sal_schema = mongoose.Schema({
     w_amt:{type:Number},
     ot_hrs:{type:Number},
     ot_amt:{type:Number},
-    total:{type:Number},
-    leave:{type:Number}
+    total:{type:Number}
 });
 
 

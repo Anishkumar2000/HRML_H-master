@@ -72,8 +72,7 @@ const data = {
   w_amt:w_amt,
   ot_hrs:ot_hrs,
   ot_amt:ot_amt,
-  total:total,
-  leave:0
+  total:total
 };
 await axios.post("http://localhost:5001/sal/add",data).then((res)=>{
   console.log(res.data);
@@ -85,7 +84,7 @@ await axios.post("http://localhost:5001/sal/add",data).then((res)=>{
 
 
   return (
-    <div className="container dfcc">
+    <div className="containe dfcc">
       <div className="sal_form dfcc c">
         <div className="box1 dfcc">
           <h3>{userdata.code}</h3>

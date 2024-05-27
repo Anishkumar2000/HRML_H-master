@@ -5,13 +5,13 @@
 }
 
 .curhead {
-  height: 20vh;
+  height: 15vh;
   width: 100%;
 
   display: flex;
 }
 .prebtn {
-  height: 20vh;
+  height: 15vh;
   width: 20%;
 
   display: flex;
@@ -28,34 +28,18 @@
   cursor: pointer;
 }
 .curheading {
-  height: 20vh;
+  height: 15vh;
   width: 60%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   color: #c70039;
 }
-/* .curmonth {
-  height: 10vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.curemp {
-  height: 10vh;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.curemp h3 {
-  color: #c70039;
-} */
-.curtotal {
-  height: 20vh;
-  width: 20%;
 
+.curtotal {
+  height: 15vh;
+  width: 20%;
+  color: #483D8B	;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -71,4 +55,8 @@
 }
 .curtable table {
   height: 70vh;
+}
+footer{
+  height: 5vh;
+  /* background-color: red; */
 }

@@ -10,12 +10,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #c70039;
+}
+label{
+    color:#0000FF	;
+}
+input{
+    color: #FF4500	;
 }
 .addbox{
     height: 75vh;
-    width: 40%;
-    /* background-color: aqua; */
-    border: 0.15rem solid black;
+    width: 40vw;
+    background-color: #98FB98;
+    border: 0.15rem solid #2F4F4F;
     border-radius: 1rem;
     display: flex;
     justify-content: flex-end;

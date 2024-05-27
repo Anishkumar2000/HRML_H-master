@@ -16,20 +16,22 @@
   justify-content: space-around;
   
 }
-.sal_container{
+/* .sal_container{
   height: 100vh;
   width: 100%;
-}
+} */
 .sal_form{
   height: 75vh;
-  width: 35%;
-  border: 0.15rem solid black;
+  width: 35vw;
+  border: 0.15rem solid #2F4F4F;
   border-radius: 5%;
+  background-color: #98FB98;
 }
 .box1,
 .box3{
   height: 10vh;
   width: 100%;
+  color: #c70039;
 }
 .box2{
   height: 55vh;

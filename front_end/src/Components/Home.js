@@ -35,13 +35,16 @@ function Home() {
   return (
     <div className="container">
       <div className="head">
+        <img
+          src="https://www.creativefabrica.com/wp-content/uploads/2021/11/26/HR-Logo-design-vector-Graphics-20767349-1-580x386.jpg"
+          alt="Logo"
+        ></img>
         <h2>Employees Details</h2>
-      </div>
-      <div className="add">
         <Link to="/add">
           <button className="btn green">Add</button>
         </Link>
       </div>
+
       <div className="table">
         <table>
           <thead>
@@ -58,10 +61,10 @@ function Home() {
             </tr>
           </thead>
           <tbody>
-            {Employees.map((emp,index) => {
+            {Employees.map((emp, index) => {
               return (
                 <tr key={emp.code}>
-                  <td>{index+1}</td>
+                  <td>{index + 1}</td>
                   <td>{emp.code}</td>
                   <td>{emp.name}</td>
                   <td>{emp.mobile}</td>
